@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 { text: "3. Tarik perhatian bayi dengan memperlihatkan selendang, sapu tangan atau serbet, kemudian jatuhkan ke lantai. Apakah bayi mencoba mencarinya? Misalnya mencari di bawah meja atau di belakang kursi?", imagePath: null },
                 { text: "4. Apakah bayi dapat memungut dua benda seperti mainan/kue kering, dan masing-masing tangan memegang satu benda pada saat yang sama? Jawab TIDAK bila bayi tidak pernah melakukan perbuatan ini.", imagePath: null },
                 { text: "5. Jika anda mengangkat bayi melalui ketiaknya ke posisi berdiri, dapatkah ia menyangga sebagian berat badan dengan kedua kakinya? Jawab YA bila ia mencoba berdiri dan sebagian berat badan tertumpu pada kedua kakinya.", imagePath: null },
-                { text: "6. Dapatkah bayi memungut dengan tangannya benda-benda kecil seperti kismis, kacang-kacangan, potongan biskuit, dengan gerakan meraup atau menggerapai seperti gambar?", imagePath: 'img/9.6.jpg' }, // Contoh, sesuaikan nama file
-                { text: "7. Tanpa disangga oleh bantal, kursi atau dinding, dapatkah bayi duduk sendiri selama 60 detik?", imagePath: 'img/9.7.jpg' }, // Contoh, sesuaikan nama file
+                { text: "6. Dapatkah bayi memungut dengan tangannya benda-benda kecil seperti kismis, kacang-kacangan, potongan biskuit, dengan gerakan meraup atau menggerapai seperti gambar?", imagePath: '9.6.jpg' }, // Contoh, sesuaikan nama file
+                { text: "7. Tanpa disangga oleh bantal, kursi atau dinding, dapatkah bayi duduk sendiri selama 60 detik?", imagePath: '9.7.jpg' }, // Contoh, sesuaikan nama file
                 { text: "8. Apakah bayi dapat makan kue kering sendiri?", imagePath: null },
                 { text: "9. Pada waktu bayi bermain sendiri dan ia diam-diam datang berdiri di belakangnya, apakah ia menengok ke belakang seperti mendengar kedatangan anda? Suara keras tidak ikut dihitung. Jawab YA hanya jika anda melihat reaksinya terhadap suara yang perlahan atau bisikan.", imagePath: null },
                 { text: "10. Letakkan suatu mainan yang diinginkannya di luar jangkauan bayi, apakah ia mencoba mendapatkannya dengan mengulurkan lengan atau badannya?", imagePath: null }
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { text: "4. Apakah anak dapat mengatakan 2 suku kata yang sama, misalnya: \"ma-ma\", \"da-da\" atau \"pa-pa\". Jawab YA bila ia mengeluarkan salah satu suara tadi.", imagePath: null },
                 { text: "5. Apakah anak dapat mengangkat badannya ke posisi berdiri tanpa bantuan anda?", imagePath: null },
                 { text: "6. Apakah anak dapat membedakan anda dengan orang yang belum ia kenal? Ia akan menunjukkan sikap malu-malu atau ragu-ragu pada saat permulaan bertemu dengan orang yang belum dikenalnya.", imagePath: null },
-                { text: "7. Apakah anak dapat mengambil benda kecil seperti kacang atau kismis, dengan meremas di antara ibu jari dan jarinya seperti pada gambar?", imagePath: 'img/12.7.jpg' }, // Asumsi nama file adalah 12.7.jpg
+                { text: "7. Apakah anak dapat mengambil benda kecil seperti kacang atau kismis, dengan meremas di antara ibu jari dan jarinya seperti pada gambar?", imagePath: '12.7.jpg' }, // Asumsi nama file adalah 12.7.jpg
                 { text: "8. Apakah anak dapat duduk sendiri tanpa bantuan?", imagePath: null },
                 { text: "9. Sebut 2-3 kata yang dapat ditiru oleh anak (tidak perlu kata-kata yang lengkap). Apakah ia mencoba meniru menyebutkan kata-kata tadi?", imagePath: null },
                 { text: "10.Tanpa bantuan, apakah anak dapat mempertemukan dua kubus kecil yang ia pegang? Kerincingan bertangkai dan tutup panci tidak ikut dinilai", imagePath: null }
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     { text: "7. Tanpa berpegangan atau menyentuh lantai, apakah anak dapat membungkuk untuk memungut mainan di lantai dan kemudian berdiri kembali?", imagePath: null },
                     { text: "8. Apakah anak dapat menunjukkan apa yang diinginkannya tanpa menangis atau merengek? Jawab YA bila ia menunjuk, menarik atau mengeluarkan suara yang menyenangkan.", imagePath: null },
                     { text: "9. Apakah anak dapat berjalan di sepanjang ruangan tanpa jatuh atau terhuyung-huyung?", imagePath: null },
-                    { text: "10. Apakah anak dapat mengambil benda kecil seperti kacang, kismis, atau potongan biskuit dengan menggunakan ibu jari dan jari telunjuk seperti pada gambar?", imagePath: 'img/15.10.jpg' } // Dari image_c8f884.png
+                    { text: "10. Apakah anak dapat mengambil benda kecil seperti kacang, kismis, atau potongan biskuit dengan menggunakan ibu jari dan jari telunjuk seperti pada gambar?", imagePath: '15.10.jpg' } // Dari image_c8f884.png
                 ]
             }
         },
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     { text: "6. Apakah anak dapat mengancingkan bajunya atau pakaian boneka?", imagePath: null },
                     { text: "7. Suruh anak berdiri satu kaki tanpa berpegangan. Jika perlu tunjukkan caranya dan beri anak anda kesempatan melakukannya 3 kali. Dapatkah ia mempertahankan keseimbangan dalam waktu 6 detik atau lebih?", imagePath: null },
                     { text: "8. Jangan mengoreksi/membantu anak. Jangan menyebut kata 'lebih panjang'. Perlihatkan gambar kedua garis ini pada anak. Tanyakan: \"Mana garis yang lebih panjang?\" Minta anak menunjuk garis yang lebih panjang. Setelah anak menunjuk, putar lembar ini dan ulangi pertanyaan tersebut. Setelah anak menunjuk, putar lembar ini lagi dan ulangi pertanyaan tadi. Apakah anak dapat menunjuk garis yang lebih panjang sebanyak 3 kali dengan benar?", imagePath: '54.8.jpg' }, //
-                    { text: "9. Jangan membantu anak dan jangan memberitahu nama gambar ini, suruh anak menggambar seperti contoh ini di kertas kosong yang tersedia. Berikan 3 kali kesempatan. Apakah anak dapat menggambar seperti contoh ini?", imagePath: 'img/54.9.jpg' }, //
+                    { text: "9. Jangan membantu anak dan jangan memberitahu nama gambar ini, suruh anak menggambar seperti contoh ini di kertas kosong yang tersedia. Berikan 3 kali kesempatan. Apakah anak dapat menggambar seperti contoh ini?", imagePath: '54.9.jpg' }, //
                     { text: "10. Ikuti perintah ini dengan seksama. Jangan memberi isyarat dengan telunjuk atau mata pada saat memberikan perintah berikut ini: \"Letakkan kertas ini di atas lantai\". \"Letakkan kertas ini di bawah kursi\". \"Letakkan kertas ini di depan kamu\". \"Letakkan kertas ini di belakang kamu\". Jawab YA hanya jika anak mengerti arti \"di atas\", \"di bawah\", \"di depan\" dan \"di belakang\".", imagePath: null }
                  ]
             }
