@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIKUMBANG - Kuesioner</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="question-area" class="form-page">
+            <div class="header-form">
+                <a id="back-to-identitas" class="back-btn">&#8592;</a>
+                <div class="header-text">
+                    <h2>Kuesioner Perkembangan</h2>
+                    <p id="child-info"></p>
+                </div>
+                <div class="placeholder-icon"></div>
+            </div>
+
+            <div style="padding: 25px 30px;">
+                <div class="question-card">
+                    <p id="question-text"></p>
+                    <div id="question-image-container" class="hidden">
+                        <img id="question-image" src="" alt="Ilustrasi pertanyaan KPSP">
+                    </div>
+                </div>
+
+                <div class="options">
+                    <button id="btn-tidak" class="btn btn-tidak">Tidak</button>
+                    <button id="btn-ya" class="btn btn-ya">Ya</button>
+                </div>
+                <div id="question-counter"></div>
+            </div>
+        </div>
+
+        <div id="result-area" class="form-page hidden">
+            <div class="header-form">
+                <a id="back-to-home-from-result" class="back-btn">&#8592;</a>
+                <div class="header-text">
+                    <h2>Hasil Skrining</h2>
+                    <h2>SIKUMBANG</h2>
+                </div>
+                <div class="placeholder-icon"></div>
+            </div>
+            <div style="padding: 30px;">
+                <h2 id="result-interpretation"></h2>
+                <p id="result-suggestion"></p>
+                <button id="btn-restart" class="btn">Mulai Kuesioner Baru</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="kuis.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPSP - Data Balita</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="identitas-balita-area" class="form-page">
+            <div class="header-form">
+                <a href="index.html" class="back-btn">&#8592;</a>
+                <div class="header-text">
+                    <h2>Identitas Balita</h2>
+                    <p>Isi data untuk memulai skrining</p>
+                </div>
+                <div class="placeholder-icon"></div>
+            </div>
+
+            <form id="balita-form">
+                <div class="form-group">
+                    <input type="text" id="nama-anak" placeholder=" " required>
+                    <label for="nama-anak">Nama Lengkap Anak</label>
+                    <span class="underline"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="nama-ayah" placeholder=" " required>
+                    <label for="nama-ayah">Nama Ayah</label>
+                    <span class="underline"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="nama-ibu" placeholder=" " required>
+                    <label for="nama-ibu">Nama Ibu</label>
+                    <span class="underline"></span>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="tanggal-lahir" placeholder=" " required>
+                    <label for="tanggal-lahir" class="date-label">Tanggal Lahir</label>
+                    <span class="underline"></span>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="tanggal-pemeriksaan" placeholder=" " required>
+                    <label for="tanggal-pemeriksaan" class="date-label">Tanggal Pemeriksaan</label>
+                    <span class="underline"></span>
+                </div>
+                <div class="checkbox-group">
+                    <input type="radio" id="gender-laki" name="jenis-kelamin" value="Laki-laki" required>
+                    <label for="gender-laki">Laki-laki</label>
+                    <input type="radio" id="gender-perempuan" name="jenis-kelamin" value="Perempuan" required style="margin-left: 20px;">
+                    <label for="gender-perempuan">Perempuan</label>
+                </div>
+                <button type="submit" class="btn">Lanjut</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="mulai.js"></script>
+</body>
+</html>
