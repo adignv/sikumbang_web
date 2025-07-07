@@ -8,7 +8,7 @@ body {
     margin: 0;
     padding: 0;
     /* --- Menggunakan gambar sebagai background --- */
-    background: linear-gradient(to bottom, #FF69B4, #ffbfca); /* Gradien biru-ungu ke pink */
+    background: linear-gradient(to bottom, #fff1f1, #ffbfca); /* Gradien biru-ungu ke pink */
     background-size: cover;
     display: flex;
     justify-content: center;

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIKUMBANG: Informasi Tumbuh Kembang Anak</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Desain Umum & Variabel Warna Pink */
+        :root {
+            --pink-light: #FFD1DC; /* Pink sangat muda */
+            --pink-medium: #FFB6C1; /* Pink muda */
+            --pink-dark: #FF69B4;  /* Pink terang / fuschia */
+            --pink-darker: #C71585; /* Pink tua / deep pink */
+
+            --gradient-main: linear-gradient(to right, var(--pink-medium), var(--pink-dark));
+            --gradient-accent: linear-gradient(to right, var(--pink-dark), var(--pink-darker));
+
+            --text-color-primary: #333;
+            --text-color-secondary: #555;
+            --white: #fff;
+            --light-bg-section: #fefefe;
+            --box-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --border-radius: 10px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--pink-light); /* Background body yang sangat lembut */
+            color: var(--text-color-primary);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: var(--box-shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--text-color-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--gradient-main);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8em;
+            cursor: pointer;
+            color: var(--pink-darker);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-main); /* Gradasi pink untuk hero section */
+            color: var(--white);
+            text-align: center;
+            padding: 120px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-content h1 {
+            font-size: 3.8em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            background: var(--gradient-accent); /* Gradasi pink untuk tombol */
+            color: var(--white);
+            padding: 14px 30px;
+            border-radius: 50px; /* Bentuk pil untuk tombol */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Section Umum */
+        .section {
+            padding: 80px 0;
+            background-color: var(--light-bg-section);
+            margin-top: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .section:nth-of-type(even) {
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 50px;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-main);
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center; /* Anda mungkin ingin tetap center atau ubah ke flex-start */
+            align-items: stretch; /* Mengatur item untuk memiliki tinggi yang sama */
+        }
+
+        .content-block {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-light);
+            flex: 1 1 calc(50% - 30px); /* 2 columns on larger screens */
+            box-sizing: border-box;
+            min-width: 300px; /* Minimum width before wrapping */
+        }
+
+        .content-block h3 {
+            font-size: 1.8em;
+            color: var(--pink-darker);
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--pink-light);
+            padding-bottom: 10px;
+        }
+
+        .content-block ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-block ul li {
+            margin-bottom: 10px;
+            color: var(--text-color-secondary);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .content-block ul li::before {
+            content: "\f00c"; /* Font Awesome checkmark icon */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: var(--pink-dark);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Special Styling for Definitions */
+        .definition-item {
+            background: linear-gradient(135deg, var(--pink-light), var(--pink-medium));
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-light);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .definition-item h3 {
+            font-size: 2em;
+            color: var(--pink-darker);
+            margin-bottom: 15px;
+        }
+
+        .definition-item p {
+            font-size: 1.1em;
+            color: var(--text-color-primary);
+        }
+
+        /* Faktor Tumbuh Kembang */
+        .factor-list {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start; /* Mengatur item untuk rata kiri */
+        }
+
+        .factor-list li {
+            background-color: var(--white);
+            padding: 15px 25px;
+            border-radius: 30px;
+            box-shadow: var(--box-shadow-light);
+            font-weight: 600;
+            color: var(--pink-darker);
+            transition: all 0.3s ease;
+        }
+
+        .factor-list li:hover {
+            background: var(--gradient-main);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Stimulasi Section */
+        .stimulation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .stimulation-item {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-light);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stimulation-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .stimulation-item i {
+            font-size: 3.5em;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .stimulation-item h3 {
+            font-size: 1.6em;
+            color: var(--pink-darker);
+            margin-bottom: 10px;
+        }
+
+        .stimulation-item p {
+            color: var(--text-color-secondary);
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: var(--gradient-accent); /* Gradasi pink tua untuk CTA */
+            color: var(--white);
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-light);
+        }
+
+        .cta-section h2 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-section p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--pink-darker); /* Pink yang paling tua */
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 30px;
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.6em;
+            margin: 0 12px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--pink-medium);
+            transform: translateY(-3px);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--white);
+                position: absolute;
+                top: 70px; /* Adjust based on header height */
+                left: 0;
+                box-shadow: var(--box-shadow-light);
+                padding: 10px 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8em;
+            }
+
+            .hero-content p {
+                font-size: 1.2em;
+            }
+
+            .section-title {
+                font-size: 2.2em;
+            }
+
+            .content-block {
+                flex: 1 1 100%; /* Single column on small screens */
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .factor-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.2em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">SIKUMBANG</a>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang Tumbuh Kembang</a></li>
+                    <li><a href="#factors">Faktor</a></li>
+                    <li><a href="#aspects">Aspek</a></li>
+                    <li><a href="#stages">Tahapan</a></li>
+                    <li><a href="#stimulation">Stimulasi</a></li>
+                </ul>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>SIKUMBANG: Situs Tumbuh Kembang Anak</h1>
+                <p>Panduan Lengkap untuk Pemantauan Optimal Pertumbuhan dan Perkembangan Anak Anda</p>
+                <a href="#about" class="btn">Pelajari Lebih Lanjut</a>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Memahami Tumbuh Kembang Anak</h2>
+                <div class="definition-item">
+                    <h3>Peraturan Menteri Kesehatan (Permenkes) Nomor 66 Tahun 2014</h3>
+                    <p>Mengatur tentang Pemantauan Pertumbuhan, Perkembangan, dan Gangguan Tumbuh Kembang Anak. Tujuannya adalah untuk memantau dan mengidentifikasi masalah tumbuh kembang anak sejak dini, sehingga intervensi dapat segera dilakukan untuk mengatasi gangguan tersebut.</p>
+                </div>
+                <div class="section-content">
+                    <div class="content-block">
+                        <h3>APA ITU PERTUMBUHAN?</h3>
+                        <p>Pertumbuhan adalah bertambahnya jumlah sel, bertambahnya ukuran fisik, dan struktur tubuh karena bertambah banyaknya sel-sel tubuh.</p>
+                    </div>
+                    <div class="content-block">
+                        <h3>APA ITU PERKEMBANGAN?</h3>
+                        <p>Perkembangan adalah bertambah matangnya fungsi alat tubuh, termasuk fungsi intelektual, emosi, dan kepribadian.</p>
+                    </div>
+                    <div class="content-block" style="flex: 1 1 100%;">
+                        <h3>Tumbuh Kembang Anak</h3>
+                        <p>Tumbuh kembang anak adalah proses perubahan fisik dan mental yang berkelanjutan sejak lahir hingga dewasa, mencakup pertumbuhan fisik (seperti tinggi dan berat badan) dan perkembangan kemampuan motorik, kognitif, emosional, sosial, dan bahasa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="factors" class="section">
+            <div class="container">
+                <h2 class="section-title">Faktor-faktor yang Mempengaruhi Tumbuh Kembang Anak</h2>
+                <div class="section-content">
+                    <div class="content-block">
+                        <h3>1. Faktor Internal</h3>
+                        <ul class="factor-list">
+                            <li>Genetik</li>
+                            <li>Hormon (pertumbuhan, tiroid, seks, insulin)</li>
+                            <li>Kondisi kesehatan</li>
+                        </ul>
+                    </div>
+                    <div class="content-block">
+                        <h3>2. Faktor Eksternal</h3>
+                        <ul class="factor-list">
+                            <li>Nutrisi</li>
+                            <li>Lingkungan (fisik dan sosial, termasuk stimulasi dari orang tua)</li>
+                            <li>Akses terhadap layanan kesehatan dan pendidikan</li>
+                            <li>Kondisi keluarga dan ekonomi</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aspects" class="section">
+            <div class="container">
+                <h2 class="section-title">Aspek Tumbuh Kembang Anak</h2>
+                <div class="stimulation-grid">
+                    <div class="stimulation-item">
+                        <i class="fas fa-child"></i>
+                        <h3>Perkembangan Fisik-Motorik</h3>
+                        <p>Pertumbuhan tinggi dan berat badan, kemampuan motorik kasar (seperti berjalan, berlari), dan motorik halus (seperti menggenggam, menulis).</p>
+                    </div>
+                    <div class="stimulation-item">
+                        <i class="fas fa-brain"></i>
+                        <h3>Perkembangan Kognitif</h3>
+                        <p>Kemampuan berpikir, belajar, memecahkan masalah, dan berbahasa.</p>
+                    </div>
+                    <div class="stimulation-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Perkembangan Sosial-Emosional</h3>
+                        <p>Kemampuan berinteraksi dengan orang lain, mengelola emosi, dan membangun hubungan.</p>
+                    </div>
+                    <div class="stimulation-item">
+                        <i class="fas fa-comments"></i>
+                        <h3>Perkembangan Bahasa</h3>
+                        <p>Kemampuan berbicara, memahami bahasa, dan berkomunikasi.</p>
+                    </div>
+                    <div class="stimulation-item">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Perkembangan Seni</h3>
+                        <p>Kemampuan mengekspresikan diri melalui seni (seperti menggambar, menyanyi, atau menari).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stages" class="section">
+            <div class="container">
+                <h2 class="section-title">Tahapan Tumbuh Kembang Anak</h2>
+                <div class="section-content">
+                    <div class="content-block">
+                        <h3>1. Bayi (0-12 bulan)</h3>
+                        <p>Pertumbuhan fisik sangat pesat, bayi mulai belajar mengangkat kepala, berguling, duduk, merangkak, dan beberapa mulai belajar berdiri dan berjalan.</p>
+                    </div>
+                    <div class="content-block">
+                        <h3>2. Balita (1-3 tahun)</h3>
+                        <p>Anak mulai belajar berbicara, berjalan lebih lancar, dan mulai bisa bermain dengan teman-temannya.</p>
+                    </div>
+                    <div class="content-block">
+                        <h3>3. Prasekolah (3-5 tahun)</h3>
+                        <p>Anak semakin mandiri, kemampuan berbahasanya berkembang pesat, dan mulai belajar bersosialisasi di lingkungan sekolah.</p>
+                    </div>
+                    <div class="content-block">
+                        <h3>4. Usia Sekolah (6 tahun ke atas)</h3>
+                        <p>Anak mulai belajar membaca, menulis, dan berhitung, serta semakin terlibat dalam kegiatan sosial dan akademis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stimulation" class="section">
+            <div class="container">
+                <h2 class="section-title">Pentingnya Stimulasi untuk Tumbuh Kembang Optimal</h2>
+                <p class="text-center" style="font-size: 1.1em; color: var(--text-color-secondary); max-width: 700px; margin: 0 auto 40px;">Stimulasi yang tepat sangat penting untuk mendukung tumbuh kembang anak optimal. Beberapa contoh stimulasi antara lain:</p>
+                <div class="stimulation-grid">
+                    <div class="stimulation-item">
+                        <i class="fas fa-running"></i>
+                        <h3>Stimulasi Fisik</h3>
+                        <p>Aktivitas fisik seperti bermain di luar ruangan, berenang, atau olahraga ringan.</p>
+                    </div>
+                    <div class="stimulation-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Stimulasi Kognitif</h3>
+                        <p>Ajak anak bermain puzzle, membaca buku cerita, atau memperkenalkan konsep baru.</p>
+                    </div>
+                    <div class="stimulation-item">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Stimulasi Sosial-Emosional</h3>
+                        <p>Ajak anak berinteraksi dengan teman sebayanya, ajarkan cara mengelola emosi, dan berikan kasih sayang.</p>
+                    </div>
+                    <div class="stimulation-item">
+                        <i class="fas fa-book-reader"></i>
+                        <h3>Stimulasi Bahasa</h3>
+                        <p>Ajak anak berbicara, membacakan cerita, atau bernyanyi bersama.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Mari Dukung Tumbuh Kembang Anak Kita!</h2>
+                <p>Dapatkan informasi lebih lanjut dan bergabunglah dengan komunitas orang tua untuk saling berbagi pengalaman.</p>
+                <a href="index.html" class="btn">Mulai Tes</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 SIKUMBANG.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            // Close menu when a nav link is clicked (for mobile)
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
